@@ -5,7 +5,7 @@ import React from "react";
 
 export default function Page() {
   return (
-    <div className="font-bold hover:bg-slate-100/10 px-4 py-3 rounded-full flex gap-4 w-60 items-center justify-between">
+    <div className="flex w-60 items-center justify-between gap-4 rounded-full px-4 py-3 font-bold hover:bg-slate-100/10">
       <div className="flex gap-4">
         <VAvatar />
         <div>user name</div>
