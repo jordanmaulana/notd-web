@@ -17,7 +17,8 @@ const dummyUser: User = {
 export const dummyNote: Note[] = [
   {
     id: "2",
-    content: "Music + Lofi + Coffee + Rain",
+    content:
+      "Music + Lofi + Coffee + Rain #cozy #life https://www.youtube.com/watch?v=2fQyuhzfBYk",
     user: dummyUser,
   },
   {
