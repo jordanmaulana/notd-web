@@ -15,6 +15,8 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@radix-ui/react-avatar": "^1.1.1",
     "@radix-ui/react-tabs": "^1.1.1",
+    "@types/jsdom": "^21.1.7",
+    "jsdom": "^25.0.1",
     "next": "15.0.2",
     "react": "19.0.0-rc-02c0e824-20241028",
     "react-dom": "19.0.0-rc-02c0e824-20241028"
