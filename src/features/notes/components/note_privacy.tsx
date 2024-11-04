@@ -22,7 +22,7 @@ export default function NotePrivacy() {
   return (
     <div className="flex items-center gap-3">
       <Tooltip content={caption.noteInput.privacyHelp}>
-        <FontAwesomeIcon icon={faCircleQuestion} />
+        <FontAwesomeIcon icon={faCircleQuestion} className="text-amber-400" />
       </Tooltip>
       <div className={textStyle}>{checked ? "Private" : "Public"}</div>
       <VSwitch
