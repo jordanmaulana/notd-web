@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { JSDOM } from "jsdom";
-import { getDomainName } from "@/app/lib/string_utility";
+import { getDomainName } from "@/lib/string_utility";
 import Image from "next/image";
 
 interface MetaTags {
