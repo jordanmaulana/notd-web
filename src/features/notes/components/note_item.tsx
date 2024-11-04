@@ -18,7 +18,7 @@ export default function NoteItem({ data }: NoteItemProps) {
   const parts = textWithoutUrls.split(/(\#[a-zA-Z0-9_]+)/g);
 
   return (
-    <div className="flex gap-4 border-y border-slate-50/20 p-4">
+    <div className="flex gap-3 border-y border-slate-50/20 p-4">
       <VAvatar />
       <div>
         <div className="font-bold">{data.user.username}</div>
