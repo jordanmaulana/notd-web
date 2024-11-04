@@ -14,7 +14,9 @@ export default function Page() {
         <div className="flex flex-grow flex-col gap-3">
           <NoteInput />
           <div className="h-[1px] w-full bg-slate-50/20" />
-          <NotePrivacy />
+          <div className="flex justify-between">
+            <NotePrivacy />
+          </div>
         </div>
       </div>
       {dummyNote.map((note) => {
