@@ -23,7 +23,7 @@ export const dummyNote: Note[] = [
   },
   {
     id: "3",
-    content: "bbb",
+    content: "bbb https://www.youtube.com/watch?v=gX0aT5SJNOs",
     user: dummyUser,
   },
   {

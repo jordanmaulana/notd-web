@@ -44,7 +44,7 @@ export default function NoteItem({ data }: NoteItemProps) {
         {urls && urls.length > 0 && (
           <div className="mt-4 w-full">
             {urls.map((url, index) => (
-              <LinkPreview key={index} url={"https://www.creowis.com/"} />
+              <LinkPreview key={index} url={url} />
             ))}
           </div>
         )}

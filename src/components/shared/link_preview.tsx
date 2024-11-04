@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { JSDOM } from "jsdom";
 import { getDomainName } from "@/app/lib/string_utility";
+import Image from "next/image";
 
 interface MetaTags {
   [key: string]: string;
@@ -67,16 +68,21 @@ async function LinkPreview({ url }: { url: string }) {
       }}
     >
       <div className="h-full w-[40%] object-cover">
-        <img
-          src={data.image}
-          alt="Link Preview"
-          className="m-0 h-full w-[340px] rounded-lg object-cover"
-        />
+        {data.image && (
+          <Image
+            src={data.image}
+            alt="Link Preview"
+            className="m-0 h-full w-[340px] rounded-l-lg border-[1px] border-slate-50/10 object-cover"
+            width={340}
+            height={120}
+            objectFit="contain"
+          />
+        )}
       </div>
-      <div className="w-[60%]">
-        <h3 className="mb-2 line-clamp-2 text-sm font-bold">{data.title}</h3>
-        <p className="mb-2 line-clamp-3 text-xs">{data.description}</p>
-        <span className="mt-3 text-xs opacity-50">{getDomainName(url)}</span>
+      <div className="w-[60%] p-4">
+        <h3 className="mb-1 line-clamp-2 text-sm font-bold">{data.title}</h3>
+        <p className="line-clamp-2 text-xs">{data.description}</p>
+        <span className="text-xs opacity-50">{getDomainName(url)}</span>
       </div>
     </Link>
   );
