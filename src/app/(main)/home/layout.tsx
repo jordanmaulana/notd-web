@@ -10,7 +10,11 @@ export default function Layout(props: LayoutProps) {
   return (
     <div className="flex">
       <aside className="flex h-screen flex-[35] items-start justify-end border-r border-slate-50/20 p-8">
-        {props.profile}
+        <div className="flex flex-col gap-3">
+          <div className="text-xl font-bold">Notd.</div>
+          <div>A Not Note Taking App</div>
+          {props.profile}
+        </div>
       </aside>
       <main className="flex-[40]">{props.children}</main>
       <aside className="h-screen flex-[45] border-l border-slate-50/20 p-8">

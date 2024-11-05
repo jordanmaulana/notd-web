@@ -8,7 +8,7 @@ export default function Page() {
     <div className="flex w-60 items-center justify-between gap-4 rounded-full px-4 py-3 font-bold hover:bg-slate-100/10">
       <div className="flex gap-4">
         <VAvatar />
-        <div>user name</div>
+        <div>Jordan Maulana</div>
       </div>
       <FontAwesomeIcon icon={faEllipsis} />
     </div>
