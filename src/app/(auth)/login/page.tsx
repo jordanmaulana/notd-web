@@ -9,7 +9,11 @@ export default function Page() {
     <div className="m-auto flex h-screen max-w-sm flex-col items-start justify-center gap-3">
       <div className="text-3xl font-bold">Save references now</div>
       <form className="flex w-full flex-col gap-3" action={login}>
-        <InputBox placeholder="Email" name="email" />
+        <InputBox
+          placeholder="Email"
+          name="email"
+          defaultValue="demo@gmail.com"
+        />
         <PasswordInput />
         <div className="m-1" />
         <Button>Login</Button>

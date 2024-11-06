@@ -12,6 +12,7 @@ export default function PasswordInput() {
     <InputBox
       name="password"
       placeholder="Password"
+      defaultValue="admin123"
       type={obscure ? "password" : "text"}
       trailingIcon={
         <FontAwesomeIcon
