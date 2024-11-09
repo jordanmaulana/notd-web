@@ -7,7 +7,9 @@ interface NoteItemProps {
 }
 
 export default function NoteItem({ data }: NoteItemProps) {
-  const { content: text } = data;
+  const { content: text, user } = data;
+
+  const { name } = user;
 
   // Regex to identify URLs
   const urlRegex = /(https?:\/\/[^\s]+)/g;
@@ -21,7 +23,7 @@ export default function NoteItem({ data }: NoteItemProps) {
     <div className="flex gap-3 border-y border-slate-50/20 p-4">
       <VAvatar />
       <div>
-        <div className="font-bold">{data.user.username}</div>
+        <div className="font-bold">{name}</div>
         <p>
           {parts.map((part, index) => {
             // Check if the part is a hashtag

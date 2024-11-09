@@ -1,14 +1,14 @@
 import axiosInstance from "@/api/axios_instance";
-import { Profile } from "../models/profile";
+import { Note } from "../models/note";
 
-interface GetProfileReturn {
-  data?: Profile;
+interface GetNotesReturn {
+  data?: Note[];
   error?: string;
 }
 
-export async function getProfile(): Promise<GetProfileReturn> {
+export async function getNotes(): Promise<GetNotesReturn> {
   return await axiosInstance
-    .get(`/v1/users/profile`)
+    .get(`/v1/notes`)
     .then(function (response) {
       return { data: response.data };
     })
