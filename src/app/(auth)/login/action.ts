@@ -16,7 +16,7 @@ export async function login(form: FormData) {
     },
     body: JSON.stringify({ email, password }),
   });
-  console.log(res);
+
   if (res.status == 200) {
     const data = await res.json();
     console.log(data);
