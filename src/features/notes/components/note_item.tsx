@@ -1,20 +1,21 @@
 import { Note } from "../models/note";
 import VAvatar from "@/components/ui/avatar";
 import LinkPreview from "@/components/shared/link_preview";
+import { formatTwitterDate } from "@/lib/string_utility";
 
 interface NoteItemProps {
   data: Note;
 }
 
 export default function NoteItem({ data }: NoteItemProps) {
-  const { content: text, user } = data;
+  const { content, user, createdAt } = data;
 
   const { name } = user;
 
   // Regex to identify URLs
   const urlRegex = /(https?:\/\/[^\s]+)/g;
-  const urls = text.match(urlRegex);
-  const textWithoutUrls = text.replace(urlRegex, "");
+  const urls = content.match(urlRegex);
+  const textWithoutUrls = content.replace(urlRegex, "");
 
   // Split the text and identify hashtags
   const parts = textWithoutUrls.split(/(\#[a-zA-Z0-9_]+)/g);
@@ -23,7 +24,10 @@ export default function NoteItem({ data }: NoteItemProps) {
     <div className="flex gap-3 border-y border-slate-50/20 p-4">
       <VAvatar />
       <div>
-        <div className="font-bold">{name}</div>
+        <div className="flex gap-2">
+          <div className="font-bold">{name}</div>
+          <div className="text-slate-500">· {formatTwitterDate(createdAt)}</div>
+        </div>
         <p>
           {parts.map((part, index) => {
             // Check if the part is a hashtag

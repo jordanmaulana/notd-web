@@ -3,6 +3,7 @@ export interface Note {
   content: string;
   isPrivate: boolean;
   user: User;
+  createdAt: Date;
 }
 
 export interface User {
