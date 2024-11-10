@@ -19,3 +19,34 @@ export async function getNotes(): Promise<GetNotesReturn> {
       return { error: "Something went wrong" };
     });
 }
+
+interface CreateNoteReturn {
+  data?: Note;
+  error?: string;
+}
+
+interface CreateNoteProps {
+  content: string;
+  isPrivate: boolean;
+}
+
+export async function createNote(
+  props: CreateNoteProps,
+): Promise<CreateNoteReturn> {
+  return await axiosInstance
+    .post(`/v1/notes`, props)
+    .then(function (response) {
+      console.log(`response ${response.status}`);
+      console.log(`response body ${response.data}`);
+
+      return { data: response.data };
+    })
+    .catch((error) => {
+      if (error.response) {
+        console.log(`error ${error.response.data}`);
+
+        return { error: error.response.data };
+      }
+      return { error: "Something went wrong" };
+    });
+}
