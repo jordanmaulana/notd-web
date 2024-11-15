@@ -11,12 +11,10 @@ export default function NoteItem({ data }: NoteItemProps) {
   const { content, user, createdAt } = data;
   const { name } = user;
 
-  // Regex to identify URLs
   const urlRegex = /(https?:\/\/[^\s]+)/g;
   const urls = content.match(urlRegex);
   const textWithoutUrls = content.replace(urlRegex, "");
 
-  // Split the text and identify hashtags
   const parts = textWithoutUrls.split(/(\#[a-zA-Z0-9_]+)/g);
 
   return (
@@ -25,11 +23,12 @@ export default function NoteItem({ data }: NoteItemProps) {
       <div>
         <div className="flex items-center gap-2">
           <div className="font-bold">{name}</div>
-          <div className="text-slate-500">· {formatTwitterDate(createdAt)}</div>
+          <div className="text-placeholder">
+            · {formatTwitterDate(createdAt)}
+          </div>
         </div>
         <p>
           {parts.map((part, index) => {
-            // Check if the part is a hashtag
             if (part.startsWith("#")) {
               return (
                 <span
@@ -40,12 +39,9 @@ export default function NoteItem({ data }: NoteItemProps) {
                 </span>
               );
             }
-            // Otherwise, return the text as is
             return <span key={index}>{part}</span>;
           })}
         </p>
-
-        {/* Render the URL thumbnail if a URL is found */}
         {urls && urls.length > 0 && (
           <div className="mt-4 w-full">
             {urls.map((url, index) => (

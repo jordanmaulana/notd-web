@@ -16,8 +16,8 @@ type PageProps = {
 
 export default async function Page({ searchParams }: PageProps) {
   const search = searchParams?.search;
-
   const { data } = await getNotes({ search });
+
   return (
     <div className="h-screen">
       <div className="flex gap-3 p-4">

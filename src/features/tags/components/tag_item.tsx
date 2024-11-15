@@ -18,7 +18,7 @@ export default function TagItem({ data }: TagItemProps) {
       }}
     >
       <div className="font-bold">{name}</div>
-      <div className="text-sm text-white/50">
+      <div className="text-sm text-placeholder">
         {count} note<span>{count > 1 ? "s" : ""}</span>
       </div>
     </Link>
