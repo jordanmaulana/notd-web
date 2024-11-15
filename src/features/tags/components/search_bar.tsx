@@ -3,12 +3,13 @@
 import { faCircleXmark } from "@fortawesome/free-regular-svg-icons";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import React, { useEffect, useState } from "react";
 
 export default function SearchBar() {
   const [value, setValue] = useState("");
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter" && value.trim()) {
@@ -20,6 +21,11 @@ export default function SearchBar() {
     router.push(`/home`);
     setValue("");
   };
+
+  useEffect(() => {
+    const search = searchParams.get("search");
+    setValue(search ?? "");
+  }, [searchParams]);
 
   return (
     <div className="text-placeholder flex h-11 w-80 items-center rounded-full border border-[#202327] bg-[#202327] px-3 focus-within:border-blue-500 focus-within:bg-black focus-within:text-blue-500">
