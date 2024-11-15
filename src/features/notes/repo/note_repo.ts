@@ -12,9 +12,9 @@ interface GetNotesProps {
   userId?: string;
 }
 
-export async function getNotes(props: GetNotesProps): Promise<GetNotesReturn> {
+export async function getNotes(params: GetNotesProps): Promise<GetNotesReturn> {
   return await axiosInstance
-    .get(`/v1/notes`, { params: props })
+    .get(`/v1/notes`, { params })
     .then(function (response) {
       return { data: response.data };
     })

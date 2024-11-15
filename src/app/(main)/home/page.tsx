@@ -13,7 +13,7 @@ export default async function Page() {
   return (
     <div className="h-screen">
       <div className="flex gap-3 p-4">
-        <VAvatar />
+        <VAvatar className="py-2" />
         <form className="flex flex-grow flex-col gap-3" action={addNote}>
           <NoteInput />
           <div className="h-[1px] w-full bg-slate-50/20" />
