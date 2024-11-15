@@ -3,15 +3,16 @@
 import { faCircleXmark } from "@fortawesome/free-regular-svg-icons";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 export default function SearchBar() {
   const [value, setValue] = useState("");
+  const router = useRouter();
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === "Enter") {
-      console.log("Enter key pressed!");
-      // Add your desired action here
+    if (event.key === "Enter" && value.trim()) {
+      router.push(`/home?search=${encodeURIComponent(value)}`);
     }
   };
 
