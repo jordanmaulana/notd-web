@@ -3,16 +3,8 @@ import { getTags } from "@/features/tags/repo/tag_repo";
 
 import React from "react";
 
-type PageProps = {
-  searchParams?: {
-    search?: string;
-  };
-};
-
-export default async function Page({ searchParams }: PageProps) {
-  const search = searchParams?.search;
-
-  const { data } = await getTags({ search });
+export default async function Page() {
+  const { data } = await getTags();
 
   return (
     <div className="vborder flex w-80 flex-col rounded-2xl border">
