@@ -9,7 +9,7 @@ import { getNotes } from "@/features/notes/repo/note_repo";
 import { addNote } from "./action";
 
 export default async function Page() {
-  const { data } = await getNotes();
+  const { data } = await getNotes({});
   return (
     <div className="h-screen">
       <div className="flex gap-3 p-4">

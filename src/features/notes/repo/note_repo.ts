@@ -6,9 +6,15 @@ interface GetNotesReturn {
   error?: string;
 }
 
-export async function getNotes(): Promise<GetNotesReturn> {
+interface GetNotesProps {
+  search?: string;
+  isPrivate?: boolean;
+  userId?: string;
+}
+
+export async function getNotes(props: GetNotesProps): Promise<GetNotesReturn> {
   return await axiosInstance
-    .get(`/v1/notes`)
+    .get(`/v1/notes`, { params: props })
     .then(function (response) {
       return { data: response.data };
     })

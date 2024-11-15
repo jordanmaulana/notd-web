@@ -7,7 +7,7 @@ export default async function Page() {
   const { data } = await getTags();
 
   return (
-    <div className="vborder flex w-96 flex-col rounded-2xl border">
+    <div className="vborder flex w-80 flex-col rounded-2xl border">
       <div className="p-4 text-xl font-bold">Your Tags</div>
       {data?.map((tag, index) => {
         return <TagItem key={index} data={tag} />;
