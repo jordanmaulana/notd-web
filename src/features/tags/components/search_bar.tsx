@@ -16,6 +16,11 @@ export default function SearchBar() {
     }
   };
 
+  const onClear = () => {
+    router.push(`/home`);
+    setValue("");
+  };
+
   return (
     <div className="text-placeholder flex h-11 w-80 items-center rounded-full border border-[#202327] bg-[#202327] px-3 focus-within:border-blue-500 focus-within:bg-black focus-within:text-blue-500">
       <span className="pl-3">
@@ -29,7 +34,7 @@ export default function SearchBar() {
         onKeyDown={handleKeyDown}
       />
       {value != "" && (
-        <span className="cursor-pointer pr-3" onClick={() => setValue("")}>
+        <span className="cursor-pointer pr-3" onClick={onClear}>
           <FontAwesomeIcon icon={faCircleXmark} />
         </span>
       )}
