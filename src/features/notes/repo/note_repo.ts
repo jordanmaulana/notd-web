@@ -36,9 +36,6 @@ export async function createNote(
   return await axiosInstance
     .post(`/v1/notes`, props)
     .then(function (response) {
-      console.log(`response ${response.status}`);
-      console.log(`response body ${response.data}`);
-
       return { data: response.data };
     })
     .catch((error) => {

@@ -9,7 +9,6 @@ interface NoteItemProps {
 
 export default function NoteItem({ data }: NoteItemProps) {
   const { content, user, createdAt } = data;
-
   const { name } = user;
 
   // Regex to identify URLs
@@ -24,7 +23,7 @@ export default function NoteItem({ data }: NoteItemProps) {
     <div className="flex gap-3 border-y border-slate-50/20 p-4">
       <VAvatar />
       <div>
-        <div className="flex gap-2">
+        <div className="flex items-center gap-2">
           <div className="font-bold">{name}</div>
           <div className="text-slate-500">· {formatTwitterDate(createdAt)}</div>
         </div>
