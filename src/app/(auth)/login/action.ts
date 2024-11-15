@@ -19,7 +19,6 @@ export async function login(form: FormData) {
 
   if (res.status == 200) {
     const data = await res.json();
-    console.log(data);
     (await cookies()).set({ name: "sessionId", value: data.sessionId });
   }
 

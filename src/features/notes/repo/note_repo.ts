@@ -46,8 +46,6 @@ export async function createNote(
     })
     .catch((error) => {
       if (error.response) {
-        console.log(`error ${error.response.data}`);
-
         return { error: error.response.data };
       }
       return { error: "Something went wrong" };

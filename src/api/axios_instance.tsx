@@ -19,7 +19,6 @@ axiosInstance.interceptors.request.use(
     if (sessionId && config.headers) {
       config.headers["session-id"] = `${sessionId}`;
     }
-    console.log(config);
     return config;
   },
   (error) => {

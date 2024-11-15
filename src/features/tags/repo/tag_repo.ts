@@ -6,9 +6,16 @@ interface GetTagsReturn {
   error?: string;
 }
 
-export async function getTags(): Promise<GetTagsReturn> {
+interface GetTagProps {
+  search?: string | null;
+  isPrivate?: boolean;
+  userId?: string;
+}
+
+export async function getTags(params: GetTagProps): Promise<GetTagsReturn> {
+  console.log(params);
   return await axiosInstance
-    .get(`/v1/tags`)
+    .get(`/v1/tags`, { params })
     .then(function (response) {
       return { data: response.data };
     })
