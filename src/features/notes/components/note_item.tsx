@@ -7,9 +7,10 @@ import Loading from "@/components/ui/loading";
 
 interface NoteItemProps {
   data: Note;
+  index: number;
 }
 
-export default function NoteItem({ data }: NoteItemProps) {
+export default function NoteItem({ data, index }: NoteItemProps) {
   const { content, user, createdAt } = data;
   const { name } = user;
 
@@ -46,7 +47,7 @@ export default function NoteItem({ data }: NoteItemProps) {
         </p>
         {urls && urls.length > 0 && (
           <div className="mt-4 w-full">
-            {urls.map((url, index) => (
+            {urls.map((url) => (
               <Suspense
                 key={`${data.id}-${url}-${index}`}
                 fallback={<Loading />}

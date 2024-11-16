@@ -2,7 +2,6 @@ import VAvatar from "@/components/ui/avatar";
 
 import NoteItem from "@/features/notes/components/note_item";
 import NotePrivacy from "@/features/notes/components/note_privacy";
-import React from "react";
 import NoteInput from "@/features/notes/components/note_input";
 import Button from "@/components/ui/button";
 import { getNotes } from "@/features/notes/repo/note_repo";
@@ -31,8 +30,8 @@ export default async function Page({ searchParams }: PageProps) {
           </div>
         </form>
       </div>
-      {data?.map((note) => {
-        return <NoteItem key={note.id} data={note} />;
+      {data?.map((note, index) => {
+        return <NoteItem key={note.id} data={note} index={index} />;
       })}
     </div>
   );
