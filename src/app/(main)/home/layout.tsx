@@ -1,5 +1,6 @@
+import Loading from "@/components/ui/loading";
 import SearchBar from "@/features/tags/components/search_bar";
-import { ReactNode } from "react";
+import { ReactNode, Suspense } from "react";
 
 interface LayoutProps {
   profile: ReactNode;
@@ -14,13 +15,18 @@ export default function Layout(props: LayoutProps) {
         <div className="flex flex-col gap-3">
           <div className="text-xl font-bold">Notd.</div>
           <div>A Not Note Taking App</div>
-          {props.profile}
+          <Suspense fallback={<Loading />}>{props.profile}</Suspense>
         </div>
       </aside>
-      <main className="flex-[40]">{props.children}</main>
+      <main className="flex-[40]">
+        <div></div>
+        <Suspense fallback={<Loading />}>{props.children}</Suspense>
+      </main>
       <aside className="flex h-screen flex-[45] flex-col gap-3 border-l border-slate-50/20 px-8 py-3">
-        <SearchBar />
-        {props.tagsection}
+        <Suspense>
+          <SearchBar />
+        </Suspense>
+        <Suspense fallback={<Loading />}>{props.tagsection}</Suspense>
       </aside>
     </div>
   );

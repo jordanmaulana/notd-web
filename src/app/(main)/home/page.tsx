@@ -8,15 +8,17 @@ import Button from "@/components/ui/button";
 import { getNotes } from "@/features/notes/repo/note_repo";
 import { addNote } from "./action";
 
-type PageProps = {
-  searchParams?: {
+interface PageProps {
+  searchParams?: Promise<{
     search?: string;
-  };
-};
+  }>;
+}
 
 export default async function Page({ searchParams }: PageProps) {
-  const search = searchParams?.search;
+  const search = (await searchParams)?.search;
+  console.time("getnotes");
   const { data } = await getNotes({ search });
+  console.time("getnotes");
 
   return (
     <div className="h-screen">
