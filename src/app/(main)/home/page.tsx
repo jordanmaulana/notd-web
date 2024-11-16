@@ -5,7 +5,7 @@ import NotePrivacy from "@/features/notes/components/note_privacy";
 import React from "react";
 import NoteInput from "@/features/notes/components/note_input";
 import Button from "@/components/ui/button";
-import { getNotes2 } from "@/features/notes/repo/note_repo";
+import { getNotes } from "@/features/notes/repo/note_repo";
 import { addNote } from "./action";
 
 interface PageProps {
@@ -16,7 +16,7 @@ interface PageProps {
 
 export default async function Page({ searchParams }: PageProps) {
   const search = (await searchParams)?.search;
-  const { data } = await getNotes2({ search });
+  const { data } = await getNotes({ search });
 
   return (
     <div className="h-screen">

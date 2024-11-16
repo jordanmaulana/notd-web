@@ -2,6 +2,8 @@ import { Note } from "../models/note";
 import VAvatar from "@/components/ui/avatar";
 import LinkPreview from "@/components/shared/link_preview";
 import { formatTwitterDate } from "@/lib/string_utility";
+import { Suspense } from "react";
+import Loading from "@/components/ui/loading";
 
 interface NoteItemProps {
   data: Note;
@@ -45,7 +47,12 @@ export default function NoteItem({ data }: NoteItemProps) {
         {urls && urls.length > 0 && (
           <div className="mt-4 w-full">
             {urls.map((url, index) => (
-              <LinkPreview key={index} url={url} />
+              <Suspense
+                key={`${data.id}-${url}-${index}`}
+                fallback={<Loading />}
+              >
+                <LinkPreview url={url} />
+              </Suspense>
             ))}
           </div>
         )}

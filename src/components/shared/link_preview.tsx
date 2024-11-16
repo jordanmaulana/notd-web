@@ -13,7 +13,9 @@ interface ExtractedMeta {
   image?: string;
 }
 
-const extractMetaTags = async (url: string): Promise<ExtractedMeta | void> => {
+const extractMetaTags = async (
+  url: string,
+): Promise<ExtractedMeta | undefined> => {
   try {
     const response = await fetch(url);
     const html = await response.text();
@@ -48,6 +50,7 @@ const extractMetaTags = async (url: string): Promise<ExtractedMeta | void> => {
     };
   } catch (error) {
     console.error("Error fetching Open Graph details", error);
+    return;
   }
 };
 

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { API_URL } from "@/config/api_url";
-import { cookies } from "next/headers";
+// import { cookies } from "next/headers";
 
 class HttpClient {
   private baseUrl: string;
@@ -15,15 +15,16 @@ class HttpClient {
     url: string,
     data?: Record<string, any>,
   ): Promise<any> {
-    const sessionId = (await cookies()).get("sessionId")?.value;
+    // const sessionId = (await cookies()).get("sessionId")?.value;
 
     const headers: Record<string, string> = {
       "Content-Type": "application/json",
+      "session-id": "cm3b6ymdl0004nwj6amevu4z3",
     };
 
-    if (sessionId) {
-      headers["session-id"] = sessionId;
-    }
+    // if (sessionId) {
+    //   headers["session-id"] = sessionId;
+    // }
 
     const response = await fetch(this.baseUrl + url, {
       method,
@@ -38,11 +39,11 @@ class HttpClient {
     return await response.json();
   }
 
-  public async get(url: string, params?: Record<string, any>) {
-    if (params) {
-      const query = queryParam(params);
-      url = `${url}?${query.toString()}`;
-    }
+  public async get(url: string) {
+    // if (params) {
+    //   const query = queryParam(params);
+    //   url = `${url}?${query.toString()}`;
+    // }
     return this.request("GET", url);
   }
 
