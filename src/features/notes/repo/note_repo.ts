@@ -1,8 +1,5 @@
 import axiosInstance from "@/api/axios_instance";
 import { Note } from "../models/note";
-import { cache } from "react";
-import { cookies } from "next/headers";
-import { API_URL } from "@/config/api_url";
 
 interface GetNotesReturn {
   data?: Note[];
@@ -14,27 +11,6 @@ interface GetNotesProps {
   isPrivate?: boolean;
   userId?: string;
 }
-
-export const getNotes2 = cache(
-  async (params: GetNotesProps): Promise<GetNotesReturn> => {
-    // return api.get(`/v1/notes?search=${params.search}`).then((response) => {
-    //   return { data: response };
-    // });
-    const sessionId = (await cookies()).get("sessionId")?.value;
-    if (!sessionId) return { error: "Unknown session" };
-
-    return await fetch(
-      `${API_URL}/v1/notes?search=${encodeURIComponent(params.search ?? "")}`,
-      {
-        headers: { "session-id": sessionId },
-      },
-    ).then(async (response) => {
-      const data = await response.json();
-      console.log(`data:\n${data.toString()}`);
-      return { data };
-    });
-  },
-);
 
 export async function getNotes(params: GetNotesProps): Promise<GetNotesReturn> {
   return await axiosInstance

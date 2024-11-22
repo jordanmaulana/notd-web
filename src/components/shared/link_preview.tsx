@@ -3,6 +3,7 @@ import { JSDOM } from "jsdom";
 import { getDomainName } from "@/lib/string_utility";
 import Image from "next/image";
 import { cache } from "react";
+import { unstable_cache } from "next/cache";
 
 interface MetaTags {
   [key: string]: string;
@@ -58,8 +59,13 @@ const extractMetaTags = cache(
 );
 
 async function LinkPreview({ url }: { url: string }) {
+  const getMetaCache = unstable_cache(
+    async (url) => extractMetaTags(url),
+    [`${url}`],
+  );
+
   console.time("Link Render");
-  const data = await extractMetaTags(url);
+  const data = await getMetaCache(url);
   console.timeEnd("Link Render");
 
   if (!data) {
