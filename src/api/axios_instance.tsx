@@ -15,7 +15,6 @@ axiosInstance.interceptors.request.use(
   async (config) => {
     // Modify the request configuration if needed
     const sessionId = (await cookies()).get("sessionId")?.value;
-
     if (sessionId && config.headers) {
       config.headers["session-id"] = `${sessionId}`;
     }
@@ -35,7 +34,6 @@ axiosInstance.interceptors.response.use(
   },
   (error) => {
     // Handle response error
-
     return Promise.reject(error);
   },
 );

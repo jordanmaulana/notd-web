@@ -1,17 +1,10 @@
-import { Note } from "../models/note";
+import { Note } from "../../models/note";
 import VAvatar from "@/components/ui/avatar";
 import LinkPreview from "@/components/shared/link_preview";
 import { formatTwitterDate } from "@/lib/string_utility";
 import { Suspense } from "react";
 import Loading from "@/components/ui/loading";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDeleteLeft, faEllipsis } from "@fortawesome/free-solid-svg-icons";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown_menu";
+import NoteOptions from "./note_options";
 
 interface NoteItemProps {
   data: Note;
@@ -39,16 +32,7 @@ export default function NoteItem({ data, index }: NoteItemProps) {
               · {formatTwitterDate(createdAt)}
             </div>
           </div>
-          <DropdownMenu>
-            <DropdownMenuTrigger className="flex cursor-pointer items-center justify-center rounded-full p-2 text-placeholder hover:bg-slate-800 hover:text-blue-700">
-              <FontAwesomeIcon icon={faEllipsis} />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuItem className="flex cursor-pointer items-center gap-2 font-bold text-red-500 focus:outline-none">
-                <FontAwesomeIcon icon={faDeleteLeft} /> Delete Item
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <NoteOptions id={data.id} />
         </div>
 
         <p>

@@ -15,7 +15,7 @@ export const DropdownMenuContent = (props: DropdownMenuContentProps) => {
     <DropdownMenuPrimitive.Portal>
       <DropdownMenuPrimitive.Content
         className={cn([
-          "rounded-xl border bg-inherit p-2 shadow-sm",
+          "rounded-xl border bg-inherit p-2 text-sm shadow-sm",
           props.className,
         ])}
       >

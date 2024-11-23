@@ -64,9 +64,7 @@ async function LinkPreview({ url }: { url: string }) {
     [`${url}`],
   );
 
-  console.time("Link Render");
   const data = await getMetaCache(url);
-  console.timeEnd("Link Render");
 
   if (!data) {
     return <p>Failed to fetch link preview.</p>;

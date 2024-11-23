@@ -1,6 +1,11 @@
 import axiosInstance from "@/api/axios_instance";
 import { Note } from "../models/note";
 
+import { API_URL } from "@/config/api_url";
+
+import { apiClient } from "@/api/api_instance";
+import { cookies } from "next/headers";
+
 interface GetNotesReturn {
   data?: Note[];
   error?: string;
@@ -15,7 +20,7 @@ interface GetNotesProps {
 export async function getNotes(params: GetNotesProps): Promise<GetNotesReturn> {
   return await axiosInstance
     .get(`/v1/notes`, { params })
-    .then(function (response) {
+    .then((response) => {
       return { data: response.data };
     })
     .catch((error) => {
@@ -41,11 +46,52 @@ export async function createNote(
 ): Promise<CreateNoteReturn> {
   return await axiosInstance
     .post(`/v1/notes`, props)
-    .then(function (response) {
+    .then((response) => {
       return { data: response.data };
     })
     .catch((error) => {
       if (error.response) {
+        return { error: error.response.data };
+      }
+      return { error: "Something went wrong" };
+    });
+}
+
+interface DeleteNoteReturn {
+  data?: boolean;
+  error?: string;
+}
+
+export async function deleteNote(id: string): Promise<DeleteNoteReturn> {
+  console.log(`delete note ${API_URL}/v1/notes/${id}`);
+
+  const sessionId = (await cookies()).get("sessionId")?.value ?? "";
+  return await fetch(`${API_URL}/v1/notes/${id}`, {
+    method: "DELETE",
+    headers: { "session-id": sessionId },
+  })
+    .then(() => {
+      console.log(`success`);
+
+      return { data: true };
+    })
+    .catch((error) => {
+      console.log(`error ${error}`);
+      return { error: "error" };
+    });
+  return await apiClient
+    .delete(`/v1/notes/${id}`)
+    .then(() => {
+      console.log(`success`);
+
+      return { data: true };
+    })
+    .catch((error) => {
+      console.log(`error ${error}`);
+
+      if (error.response) {
+        console.log(`error response ${error.response.data}`);
+
         return { error: error.response.data };
       }
       return { error: "Something went wrong" };

@@ -1,6 +1,6 @@
 import VAvatar from "@/components/ui/avatar";
 
-import NoteItem from "@/features/notes/components/note_item";
+import NoteItem from "@/features/notes/components/note_item/note_item";
 import NotePrivacy from "@/features/notes/components/note_privacy";
 import NoteInput from "@/features/notes/components/note_input";
 import Button from "@/components/ui/button";
