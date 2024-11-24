@@ -3,9 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { deleteNote } from "../repo/note_repo";
 
-export async function deleteNoteAction(formData: FormData) {
-  const id = formData.get("id") as string;
-  console.log(`id: ${id}`);
+export async function deleteNoteAction(id: string) {
   await deleteNote(id);
   revalidatePath("/next-optimistic");
 }
