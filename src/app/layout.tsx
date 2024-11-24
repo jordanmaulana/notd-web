@@ -5,6 +5,7 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 
 import React from "react";
+import { Toaster } from "react-hot-toast";
 
 config.autoAddCss = false;
 
@@ -34,7 +35,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        {children} <Toaster />
       </body>
     </html>
   );
