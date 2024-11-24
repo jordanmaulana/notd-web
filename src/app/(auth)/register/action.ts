@@ -37,7 +37,7 @@ export async function signup(
   } else {
     return {
       code: res.status,
-      message: await res.json(),
+      message: await res.text(),
     };
   }
 }
