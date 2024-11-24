@@ -83,10 +83,9 @@ async function LinkPreview({ url }: { url: string }) {
           <Image
             src={data.image}
             alt="Link Preview"
-            className="m-0 h-full w-[340px] rounded-l-lg border-[1px] border-slate-50/10 object-cover"
+            className="m-0 h-full w-[340px] rounded-l-lg border-[1px] border-slate-50/10"
             width={340}
             height={120}
-            objectFit="contain"
           />
         )}
       </div>

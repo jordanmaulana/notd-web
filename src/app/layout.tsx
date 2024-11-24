@@ -20,7 +20,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Notd.",
+  title: "Notd",
   description: "A reference pointer",
 };
 
