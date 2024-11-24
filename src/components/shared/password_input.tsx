@@ -5,13 +5,18 @@ import InputBox from "../ui/input_box";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
 
-export default function PasswordInput() {
+interface PasswordInputProps {
+  name: string;
+  placeholder: string;
+}
+
+export default function PasswordInput(props: PasswordInputProps) {
   const [obscure, setObscure] = useState(true);
 
   return (
     <InputBox
-      name="password"
-      placeholder="Password"
+      name={props.name}
+      placeholder={props.placeholder}
       defaultValue="admin123"
       type={obscure ? "password" : "text"}
       trailingIcon={
