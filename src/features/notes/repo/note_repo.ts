@@ -69,7 +69,6 @@ export async function deleteNote(id: string): Promise<DeleteNoteReturn> {
       return { data: true };
     })
     .catch((error) => {
-      console.log(`error ${error}`);
       return { error: error };
     });
 }

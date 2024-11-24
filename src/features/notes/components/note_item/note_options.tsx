@@ -20,6 +20,7 @@ export default function NoteOptions(props: NoteOptionsProps) {
   const handleDelete = async () => {
     await deleteNoteAction(props.id);
   };
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="flex cursor-pointer items-center justify-center rounded-full p-2 text-placeholder hover:bg-slate-800 hover:text-blue-700">
