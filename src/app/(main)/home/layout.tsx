@@ -1,3 +1,4 @@
+import Logo from "@/components/shared/logo";
 import Loading from "@/components/ui/loading";
 import SearchBar from "@/features/tags/components/search_bar";
 import { ReactNode, Suspense } from "react";
@@ -13,8 +14,7 @@ export default function Layout(props: LayoutProps) {
     <div className="flex">
       <aside className="sticky top-0 flex h-screen flex-[35] items-start justify-end px-8 py-3">
         <div className="flex flex-col gap-3">
-          <div className="text-xl font-bold">Notd.</div>
-          <div>A Not Note Taking App</div>
+          <Logo size={42} className="ml-4" />
           <Suspense fallback={<Loading />}>{props.profile}</Suspense>
         </div>
       </aside>
