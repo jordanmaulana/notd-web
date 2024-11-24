@@ -10,18 +10,18 @@ interface LayoutProps {
 
 export default function Layout(props: LayoutProps) {
   return (
-    <div className="flex h-screen">
-      <aside className="flex h-screen flex-[35] items-start justify-end px-8 py-3">
+    <div className="flex">
+      <aside className="sticky top-0 flex h-screen flex-[35] items-start justify-end px-8 py-3">
         <div className="flex flex-col gap-3">
           <div className="text-xl font-bold">Notd.</div>
           <div>A Not Note Taking App</div>
           <Suspense fallback={<Loading />}>{props.profile}</Suspense>
         </div>
       </aside>
-      <main className="h-screen flex-[40]">
+      <main className="flex-[40]">
         <Suspense fallback={<Loading />}>{props.children}</Suspense>
       </main>
-      <aside className="flex h-screen flex-[45] flex-col gap-3 px-8 py-3">
+      <aside className="sticky top-0 flex h-screen flex-[45] flex-col gap-3 px-8 py-3">
         <Suspense>
           <SearchBar />
         </Suspense>
