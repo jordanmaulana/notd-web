@@ -18,7 +18,7 @@ export default async function Page({ searchParams }: PageProps) {
   const { data } = await getNotes({ search });
 
   return (
-    <div className="h-screen">
+    <div className="border-x border-slate-50/20">
       <div className="flex gap-3 p-4">
         <VAvatar className="py-2" />
         <form className="flex flex-grow flex-col gap-3" action={addNote}>
