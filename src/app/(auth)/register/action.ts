@@ -12,7 +12,14 @@ export async function signup(
   const email = form.get("email") as string;
   const password = form.get("password") as string;
   const name = form.get("name") as string;
-  // const passwordConfirmation = form.get("passwordConfirmation") as string;
+  const passwordConfirmation = form.get("passwordConfirmation") as string;
+
+  if (password != passwordConfirmation) {
+    return {
+      code: 400,
+      message: "Confirmation password is different than your password",
+    };
+  }
 
   const res = await fetch(`${API_URL}/v1/register`, {
     method: "POST",

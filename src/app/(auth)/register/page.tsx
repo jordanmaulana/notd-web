@@ -39,10 +39,10 @@ export default function Page() {
           defaultValue="Jordan Maulana2"
         />
         <PasswordInput name="password" placeholder="Password" />
-        {/* <PasswordInput
+        <PasswordInput
           name="passwordConfirmation"
           placeholder="Password Confirmation"
-        /> */}
+        />
         <div className="m-1" />
         <Button disabled={isPending}>Sign Up</Button>
         <div className="flex justify-center gap-2">
