@@ -2,8 +2,7 @@ import React from "react";
 import { Profile } from "../models/profile";
 import { logout } from "@/app/(main)/home/@profile/action";
 import VAvatar from "@/components/ui/avatar";
-import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { DotsHorizontalIcon } from "@radix-ui/react-icons";
 
 interface ProfileItemProps {
   data: Profile;
@@ -19,7 +18,7 @@ export default function ProfileItem({ data }: ProfileItemProps) {
         <VAvatar />
         <div>{data?.name}</div>
       </div>
-      <FontAwesomeIcon icon={faEllipsis} />
+      <DotsHorizontalIcon />
     </div>
   );
 }

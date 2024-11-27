@@ -2,8 +2,7 @@
 
 import React, { useState } from "react";
 import InputBox from "../ui/input_box";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
+import { EyeOpenIcon, EyeNoneIcon } from "@radix-ui/react-icons";
 
 interface PasswordInputProps {
   name: string;
@@ -20,13 +19,14 @@ export default function PasswordInput(props: PasswordInputProps) {
       defaultValue="admin123"
       type={obscure ? "password" : "text"}
       trailingIcon={
-        <FontAwesomeIcon
-          icon={obscure ? faEye : faEyeSlash}
+        <div
+          className="cursor-pointer"
           onClick={() => {
             setObscure(!obscure);
           }}
-          className="cursor-pointer"
-        />
+        >
+          {obscure ? <EyeOpenIcon /> : <EyeNoneIcon />}
+        </div>
       }
     />
   );

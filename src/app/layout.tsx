@@ -1,13 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import "@fortawesome/fontawesome-svg-core/styles.css";
-import { config } from "@fortawesome/fontawesome-svg-core";
 
 import React from "react";
 import { Toaster } from "react-hot-toast";
-
-config.autoAddCss = false;
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",

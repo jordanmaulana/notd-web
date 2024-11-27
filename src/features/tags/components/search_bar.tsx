@@ -1,10 +1,8 @@
 "use client";
 
-import { faCircleXmark } from "@fortawesome/free-regular-svg-icons";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import { MagnifyingGlassIcon, CrossCircledIcon } from "@radix-ui/react-icons";
 
 export default function SearchBar() {
   const [value, setValue] = useState("");
@@ -28,12 +26,12 @@ export default function SearchBar() {
   }, [searchParams]);
 
   return (
-    <div className="text-placeholder flex h-11 w-80 items-center rounded-full border border-[#202327] bg-[#202327] px-3 focus-within:border-blue-500 focus-within:bg-black focus-within:text-blue-500">
+    <div className="flex h-11 w-80 items-center rounded-full border border-[#202327] bg-[#202327] px-3 text-placeholder focus-within:border-blue-500 focus-within:bg-black focus-within:text-blue-500">
       <span className="pl-3">
-        <FontAwesomeIcon icon={faSearch} />
+        <MagnifyingGlassIcon />
       </span>
       <input
-        className="placeholder-placeholder flex-1 border-none bg-transparent px-3 text-white outline-none"
+        className="flex-1 border-none bg-transparent px-3 text-white placeholder-placeholder outline-none"
         placeholder="Search"
         value={value}
         onChange={(e) => setValue(e.currentTarget.value)}
@@ -41,7 +39,7 @@ export default function SearchBar() {
       />
       {value != "" && (
         <span className="cursor-pointer pr-3" onClick={onClear}>
-          <FontAwesomeIcon icon={faCircleXmark} />
+          <CrossCircledIcon />
         </span>
       )}
     </div>

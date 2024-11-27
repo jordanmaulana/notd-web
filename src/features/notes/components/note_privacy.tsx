@@ -4,10 +4,8 @@ import VSwitch from "@/components/ui/switch";
 import { Tooltip } from "@/components/ui/tooltip";
 import { caption } from "@/lib/captions";
 import { cn } from "@/lib/tailwind_utility";
-import { faCircleQuestion } from "@fortawesome/free-regular-svg-icons";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
+import { InfoCircledIcon } from "@radix-ui/react-icons";
 
 export default function NotePrivacy() {
   const [checked, setChecked] = useState(true);
@@ -22,7 +20,7 @@ export default function NotePrivacy() {
   return (
     <div className="flex items-center gap-3">
       <Tooltip content={caption.noteInput.privacyHelp}>
-        <FontAwesomeIcon icon={faCircleQuestion} className="text-amber-400" />
+        <InfoCircledIcon className="text-amber-400" />
       </Tooltip>
       <div className={textStyle}>{checked ? "Private" : "Public"}</div>
       <VSwitch
