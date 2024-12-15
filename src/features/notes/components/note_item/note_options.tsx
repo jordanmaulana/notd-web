@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDeleteLeft, faEllipsis } from "@fortawesome/free-solid-svg-icons";
+import { DotsHorizontalIcon, TrashIcon } from "@radix-ui/react-icons";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -24,14 +24,14 @@ export default function NoteOptions(props: NoteOptionsProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="flex cursor-pointer items-center justify-center rounded-full p-2 text-placeholder hover:bg-slate-800 hover:text-blue-700">
-        <FontAwesomeIcon icon={faEllipsis} />
+        <DotsHorizontalIcon />
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuItem
           className="flex cursor-pointer items-center gap-2 font-bold text-red-500 focus:outline-none"
           onClick={handleDelete}
         >
-          <FontAwesomeIcon icon={faDeleteLeft} /> Delete Item
+          <TrashIcon /> Delete Item
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
