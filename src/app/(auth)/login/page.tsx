@@ -13,7 +13,6 @@ export default function Page() {
         <InputBox
           placeholder="Email"
           name="email"
-          defaultValue="demo@gmail.com"
         />
         <PasswordInput name="password" placeholder="Password" />
         <div className="m-1" />

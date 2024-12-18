@@ -16,7 +16,6 @@ export default function PasswordInput(props: PasswordInputProps) {
     <InputBox
       name={props.name}
       placeholder={props.placeholder}
-      defaultValue="admin123"
       type={obscure ? "password" : "text"}
       trailingIcon={
         <div

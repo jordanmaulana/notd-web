@@ -31,12 +31,10 @@ export default function Page() {
         <InputBox
           placeholder="Email: example@gmail.com"
           name="email"
-          defaultValue="demo2@gmail.com"
         />
         <InputBox
           placeholder="Name: Rudy Tabootie"
           name="name"
-          defaultValue="Jordan Maulana2"
         />
         <PasswordInput name="password" placeholder="Password" />
         <PasswordInput
