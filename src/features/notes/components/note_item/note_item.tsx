@@ -22,26 +22,28 @@ export default function NoteItem({ data, index }: NoteItemProps) {
   const parts = textWithoutUrls.split(/(\#[a-zA-Z0-9_]+)/g);
 
   return (
-    <div className="flex w-full gap-3 border-y border-slate-50/20 p-4">
+    <div className="flex w-full gap-3 border-y border-gray-200 p-4 
+                    dark:border-slate-50/20">
       <VAvatar />
       <div className="w-full">
         <div className="flex w-full justify-between">
           <div className="flex items-center gap-2">
-            <div className="font-bold">{name}</div>
-            <div className="text-placeholder">
+            <div className="font-bold text-gray-900 dark:text-white">{name}</div>
+            <div className="text-gray-500 dark:text-gray-400">
               · {formatTwitterDate(createdAt)}
             </div>
           </div>
           <NoteOptions id={data.id} />
         </div>
 
-        <p>
+        <p className="text-gray-900 dark:text-white">
           {parts.map((part, index) => {
             if (part.startsWith("#")) {
               return (
                 <span
                   key={index}
-                  className="text-sky-500 hover:cursor-pointer hover:underline"
+                  className="text-blue-500 hover:cursor-pointer hover:underline 
+                           dark:text-sky-500"
                 >
                   {part}
                 </span>

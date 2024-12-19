@@ -11,7 +11,7 @@ export default function Button(props: ButtonProps) {
   return (
     <button
       className={cn([
-        "rounded-full px-4 py-1 font-bold text-white",
+        "rounded-full px-4 py-2 font-bold text-white",
         props.disabled ? "bg-sky-500/50" : "bg-sky-500",
         props.className,
       ])}

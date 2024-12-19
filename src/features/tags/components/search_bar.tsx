@@ -26,19 +26,27 @@ export default function SearchBar() {
   }, [searchParams]);
 
   return (
-    <div className="flex h-11 w-80 items-center rounded-full border border-[#202327] bg-[#202327] px-3 text-placeholder focus-within:border-blue-500 focus-within:bg-black focus-within:text-blue-500">
+    <div className="flex h-11 w-80 items-center rounded-full 
+                    border border-gray-200 bg-white px-3 text-gray-400
+                    focus-within:border-blue-500 focus-within:text-blue-500
+                    dark:border-[#202327] dark:bg-[#202327] 
+                    dark:focus-within:bg-black dark:text-gray-400">
       <span className="pl-3">
         <MagnifyingGlassIcon />
       </span>
       <input
-        className="flex-1 border-none bg-transparent px-3 text-white placeholder-placeholder outline-none"
+        className="flex-1 border-none bg-transparent px-3 
+                   text-gray-900 placeholder-gray-400 outline-none
+                   dark:text-white dark:placeholder-gray-500"
         placeholder="Search"
         value={value}
         onChange={(e) => setValue(e.currentTarget.value)}
         onKeyDown={handleKeyDown}
       />
       {value != "" && (
-        <span className="cursor-pointer pr-3" onClick={onClear}>
+        <span className="cursor-pointer pr-3 hover:text-gray-600 
+                        dark:hover:text-gray-300" 
+              onClick={onClear}>
           <CrossCircledIcon />
         </span>
       )}
