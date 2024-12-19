@@ -18,12 +18,12 @@ export default async function Page({ searchParams }: PageProps) {
   const { data } = await getNotes({ search });
 
   return (
-    <div className="min-h-screen border-x border-slate-50/20">
+    <div className="min-h-screen border-x border-gray-200 dark:border-slate-50/20">
       <div className="flex gap-3 p-4">
         <VAvatar className="py-2" />
         <form className="flex flex-grow flex-col gap-3" action={addNote}>
           <NoteInput />
-          <div className="h-[1px] w-full bg-slate-50/20" />
+          <div className="h-[1px] w-full bg-gray-200 dark:bg-slate-50/20" />
           <div className="flex justify-between">
             <NotePrivacy />
             <Button>Save</Button>
